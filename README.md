@@ -1,7 +1,7 @@
 # DEVOTEam 
 
 
-Team Member:
+Team Members:
 
 Manuja Bandal
 
