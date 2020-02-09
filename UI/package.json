@@ -17,6 +17,7 @@
     "mdbreact": "^4.22.1",
     "mobiscroll": "^3.0.0-beta6",
     "mobiscroll-react": "^4.0.0",
+    "node-uuid": "^1.4.8",
     "radium": "^0.26.0",
     "react": "^16.12.0",
     "react-accessible-accordion": "^3.0.1",
