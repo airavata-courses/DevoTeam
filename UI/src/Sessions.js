@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import localStorage from "localStorage";
 
-export default class Session extends Component{
+export default class Sessions extends Component{
     constructor(props) {
         super(props);{
           this.state={
