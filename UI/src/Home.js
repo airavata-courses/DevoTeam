@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Form } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import {default as UUID} from "node-uuid";
 import axios from "axios";
-import localStorage from "localStorage";
 
+//import LandingPage from './LandingPage'
+import localStorage from "localStorage";
 export default class HomeComponent extends Component {
   constructor(props) {
     super(props);{
@@ -41,7 +43,7 @@ export default class HomeComponent extends Component {
 
     return axios({
       method: "post",
-      url: "http://localhost:8080",
+      url: "149.161.192.1:8081/weather",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -55,25 +57,7 @@ export default class HomeComponent extends Component {
       .catch(err => {});
   }
 
-  getSession(){
-    var postData = {
-      email: localStorage.getItem("currentUser")
-    };
-    return axios({
-      method: "post",
-      url: "http://localhost:8080/getSession",
-      headers: { "Access-Control-Allow-Origin": "*" },
-      data: postData
-    })
-      .then(response => {
-        this.setState({
-          
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  
 
   render() {
     if (localStorage.getItem("isLogin") == "true") {
@@ -85,16 +69,9 @@ export default class HomeComponent extends Component {
           <br></br>
           <h4><center>Find your weather</center></h4>
           <Form>
-            <div>
-              <button
-                className="btn btn-success"
-                style={{ float: "right" }}
-                type="button"
-                onClick={this.userInput}
-                    >
-                     Sessions
-              </button>
-              </div>
+          <Link to={{ pathname: "/Sessions" }} style={{ float: "right", fontSize:"30px" }}>
+           Sessions
+          </Link>
                   <div style={{ padding: "3%" }}>
                     <fieldset className="form-group">
                       <br></br>
