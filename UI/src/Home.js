@@ -24,14 +24,18 @@ export default class HomeComponent extends Component {
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.value
+      isChange: true
     });
   }
   componentWillMount() {
-    this.id = UUID.v4();
+ 
     console.log("Key is",this.id);
   }
 
   userInput() {
+    if(ischange==true){
+         this.id = UUID.v4();
+    }
     var inputData = {
       year: this.state.year,
       month: this.state.month,
@@ -66,6 +70,7 @@ export default class HomeComponent extends Component {
   
 
   render() {
+    let imgurl="data:image/png;base64, "+{this.state.plot}
     if (localStorage.getItem("isLogin") == "true") {
     return (
       <React.Fragment>
@@ -165,7 +170,7 @@ export default class HomeComponent extends Component {
                   </div>
                 </Form>
                 <div>
-                  <img src="data:image/png;base64, +{this.state.plot}" alt="Red dot"/>
+                  <img src={imgurl} alt="Red dot"/>
                 </div>
         </div>
       </React.Fragment>
