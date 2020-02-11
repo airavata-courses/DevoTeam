@@ -43,16 +43,22 @@ export default class HomeComponent extends Component {
 
     return axios({
       method: "post",
-      url: "149.161.192.1:8081/weather",
+      url: "http://localhost:8081/weather",
       headers: {
         "Access-Control-Allow-Origin": "*"
+
       },
       data: inputData
     })
       .then(response => {
-        if (response["data"] == "success") {
-         console.log("Success");
-        }
+        this.setState({
+          user: response.data,
+          spectrum_width: response.data.max_spectrum_width,
+          plot: response.data.plot,
+        });
+       /* if (response["data"] == "success") {
+       console.log("Success");}*/ 
+
       })
       .catch(err => {});
   }
@@ -158,6 +164,9 @@ export default class HomeComponent extends Component {
                     <br></br>
                   </div>
                 </Form>
+                <div>
+                  <img src="data:image/png;base64, +{this.state.plot}" alt="Red dot"/>
+                </div>
         </div>
       </React.Fragment>
     );
