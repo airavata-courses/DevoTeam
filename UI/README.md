@@ -8,8 +8,11 @@ ReactJS setup: https://www.robinwieruch.de/react-js-windows-setup
 ### Steps to run the application:
 
 1. Open UI folder in Visual Studio Code or open command prompt in the UI folder.
-2. Enter command #### npm install
-3. Enter command #### npm start
+   Open Visual Studio Code -> File -> Open Folder -> directory -> locate the project -> finish
+2. Enter command #### npm install in terminal
+   Terminal -> New Terminal or control + shift + `. Go to terminal and then go to project and run above command:
+3. Enter command #### npm start in terminal
+
  You will see the frontend application running on the web-browser.
  
 ### Use:
