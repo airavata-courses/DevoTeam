@@ -57,5 +57,90 @@ pip install netCDF4
 ```
 ### 8) Download and install NodeJS and npm
 https://nodejs.org/dist/v12.16.0/node-v12.16.0-x64.msi and add installation directory to path environment variables
-  
+
+### 9) Download & install MongoDB
+https://www.mongodb.com/download-center/community select windows x64 version and download
+```
+i) After installing go to services in windows and search for MongoDB, right click and click on start to start the server.
+ii) Go to MongoDB Compass Community a GUI tool to interact with the MongoDB server and select New connection. Enter mongodb://localhost:27017 and connect.  
+ii) Create database named "session" and create a collection in the database as "sessions".
+```
+
+### 10) Donwload & install MySQL server workbench  
+https://dev.mysql.com/downloads/file/?id=492814
+```
+1) Database Setup
+
+Create database named devoteam_user in MySQL using command line or workbench and create table users.
+
+CREATE TABLE users (
+
+email varchar(45) NOT NULL,
+
+password varchar(500) NOT NULL,
+
+firstname varchar(45) NOT NULL,
+
+lastname varchar(45) NOT NULL,
+
+contact varchar(45) NOT NULL,
+
+PRIMARY KEY (email)
+
+);
+```
+
+### 11) Download and install JDK
+https://download.oracle.com/otn-pub/java/jdk/13.0.2+8/d4173c853231432d94f001e99d882ca7/jdk-13.0.2_windows-x64_bin.exe
+
+### 12) Download & install exlipse with springboot and Maven
+https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2019-12/R/eclipse-inst-win64.exe
+```
+Open Eclipse IDE
+Click on Help -> Eclipse marketplace and search 
+select the second entry which is Spring Tools 3 Add-on for Spring Tools 4 3.9.12.CI
+and install
+```
+
 ## Components:
+Clone Devoteam repository on your system through the zip or using git bash command  
+git clone https://github.com/airavata-courses/DevoTeam.git
+### 1) Data ingestion:
+```
+open a command prompt and navigate to the directory where you cloned the repository  
+cd DevoTeam\Data_Ingestion  
+python service.py
+```
+### 2) Model Analysis:
+```
+open a command prompt and navigate to the directory where you cloned the repository  
+cd DevoTeam\Model_Execution
+python service.py
+```
+### 3) Pre-processing & analysis:
+```
+open a command prompt and navigate to the directory where you cloned the repository  
+cd DevoTeam\Post_processing
+python service.py
+```  
+### 4) Session Management:     
+```
+open a command prompt and navigate to the directory where you cloned the repository  
+cd DevoTeam\Session_Management
+npm install
+node index.js
+```  
+
+### 5) API   
+```
+Open a command prompt and navigate to the directory where you cloned the repository  
+cd DevoTeam\API_gateway
+npm install
+npm start
+```  
+
+### 6) User Management  
+```
+i) Open Eclipse and select import existing Maven project  
+ii) Navigate to the repository directory on your system
+```
