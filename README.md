@@ -9,7 +9,7 @@ Sumant Gaopande
 
 Sainath Parkala
 
-##System-setup for windows OS: 
+## System-setup for windows OS: 
 1) Download & install Erlang: http://erlang.org/download/otp_win64_22.2.exe
 Set an environment variable as: ERLANG_HOME for the installation directory path for eg: D:\Erlang\erl10.6  
 2) Download & install RabbitMQ:
