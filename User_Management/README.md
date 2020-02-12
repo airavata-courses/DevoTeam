@@ -2,7 +2,7 @@
 
 ### Prerequisite:
 
-Java 8: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+Java 8: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  
 MySQL Server and Workbench: https://dev.mysql.com/downloads/installer/
 
 ### Setup:
