@@ -7,7 +7,7 @@
     "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Sainath Parakala",
+  "author": "Sainath Parakala and Sumant Gaopande", 
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.5.5",
