@@ -141,6 +141,17 @@ npm start
 
 ### 6) User Management  
 ```
-i) Open Eclipse and select import existing Maven project  
-ii) Navigate to the repository directory on your system
+i) Open Eclipse and select import -> existing Maven project  
+ii) Navigate to the repository directory on your system and import project  
+iii) Edit application properties file with correct credentials for database connectivity  
+iv) Right click on the project -> Run as -> Maven Install  
+v) Right click on the project -> Run as -> Maven Build -> Goals: spring-boot:run
+```
+
+### 7) User Interface
+```
+Open command prompt and naviagte to UI directory in the directory where you would pull the code
+cd DevoTeam/UI
+npm install
+npm start
 ```
