@@ -10,8 +10,10 @@ ReactJS setup: https://www.robinwieruch.de/react-js-windows-setup
 1. Open UI folder in Visual Studio Code or open command prompt in the UI folder.
    Open Visual Studio Code -> File -> Open Folder -> directory -> locate the project -> finish
 2. Terminal -> New Terminal or control + shift + `. Go to terminal and then go to project and run following commands:
+   
    To install all the dependencies:
    #### npm install 
+   
    To start the front-end application:
    #### npm start
 
