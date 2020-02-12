@@ -117,7 +117,7 @@ open a command prompt and navigate to the directory where you cloned the reposit
 cd DevoTeam\Model_Execution
 python service.py
 ```
-### 3) Pre-processing & analysis:
+### 3) Post-processing & analysis:
 ```
 open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam\Post_processing
