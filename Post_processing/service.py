@@ -1,3 +1,6 @@
+# pip install nexradaws
+# pip install arm-pyart
+# pip install netCDF4
 import nexradaws
 import pyart
 import pika
@@ -19,6 +22,7 @@ for severity in severities:
 
 print('Post processing waiting for messages')
 
+
 def callback(ch, method, properties, body):
     import pickle
     body = pickle.loads(body)
@@ -34,6 +38,7 @@ def callback(ch, method, properties, body):
         radar = scan.open_pyart()
         max_spectrum_width = radar.fields['spectrum_width']['valid_max']
 
+    print("max:", max_spectrum_width)
     dir_name = os.getcwd()
     dir = os.listdir(dir_name)
 
@@ -48,10 +53,11 @@ def callback(ch, method, properties, body):
 
     channel_send.basic_publish(exchange='Broker', routing_key='API_send_pp', properties=pika.BasicProperties(
         headers={'key': key}  # Add a key/value header
-    ), body= json.dumps(str(max_spectrum_width)))
+    ), body= str(max_spectrum_width))
     print("Sent from Model Analysis:")
     connection_send.close()
 
 
 channel.basic_consume(queue=queue_name, on_message_callback=callback, auto_ack=True)
+
 channel.start_consuming()
