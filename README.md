@@ -43,3 +43,19 @@ ii) run redis-cli - type ping, you should get back a reply as pong
 
 ### 4) Download & Install python anaconda package:
 Python-anaconda package: https://repo.anaconda.com/archive/Anaconda3-2019.10-Windows-x86_64.exe
+
+### 5) Install pika - rabbitmq client for python  
+```
+pip install pika
+```
+
+### 6) Install nexradaws - python module to access Nexrad radar data 
+```
+pip install nexradaws
+```  
+
+### 7) Install pyart and netCDF4
+```
+pip install arm-pyart
+pip install netCDF4
+```
