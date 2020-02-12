@@ -19,9 +19,9 @@ Sainath Parkala
 &nbsp;&nbsp;- RABBITMQ_NODENAME - rabbit@localhost  
 &nbsp;&nbsp;Append the following variable to path:  
 &nbsp;&nbsp;%RABBITMQ_SERVER%\sbin      
-&nbsp;&nbsp;&nbsp;&nbsp;open a command prompt and enter:
-&nbsp;&nbsp;&nbsp;&nbsp;i) rabbitmqctl start_app  (You should see rabbitmqctl starting up) 
-&nbsp;&nbsp;&nbsp;&nbsp;ii) rabbitmqctl start_app (You should see rabbitmqctl ports in use)
+&nbsp;&nbsp;&nbsp;open a command prompt and enter:  
+&nbsp;&nbsp;&nbsp;&nbsp;i) rabbitmqctl start_app  (You should see rabbitmqctl starting up)   
+&nbsp;&nbsp;&nbsp;&nbsp;ii) rabbitmqctl start_app (You should see rabbitmqctl ports in use)  
 
 &nbsp;&nbsp;If you dont see rabbitmq running:
 &nbsp;&nbsp;go to start and click on RAbbitMQ service - START then run the 2 commads mentioned above again
