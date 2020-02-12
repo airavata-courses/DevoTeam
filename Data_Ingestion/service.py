@@ -1,9 +1,8 @@
-# !pip install boto
-import boto
 import pika
 import json
-
 import sys
+import nexradaws
+import pickle
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
@@ -33,25 +32,12 @@ def callback(ch, method, properties, body):
     key = body['key']
 
     print("Inputs in DI:", year, day, month, station, key)
-    import nexradaws
+    
     conn = nexradaws.NexradAwsInterface()
 
     availscans = conn.get_avail_scans(year, month, day, station)
 
-    import pickle
-
     serialized_obj = pickle.dumps({'key': key, 'message': availscans[0]})
-
-
-    # bucket_url = "http://noaa-nexrad-level2.s3.amazonaws.com/"
-    # time_stamp = year + '/' + month + '/' + day
-    # s3_connection = boto.connect_s3(anon=True)
-    #
-    # s3_bucket = s3_connection.get_bucket('noaa-nexrad-level2', validate=False)
-    #
-    # list_urls = []
-    # for key in s3_bucket.get_all_keys(prefix=time_stamp):
-    #     list_urls.append(bucket_url + key.name)
 
     connection_send = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
     channel_send = connection_send.channel()
