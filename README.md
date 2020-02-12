@@ -5,8 +5,8 @@ Manuja Bandal
 Sumant Gaopande  
 Sainath Parkala  
 
-## System-setup for windows OS: 
-
+# System-setup for windows OS:   
+## Pre-requisites:   
 ### 1) Download & install Erlang: http://erlang.org/download/otp_win64_22.2.exe  
 ```
 Set an environment variable as: ERLANG_HOME for the installation  
@@ -55,3 +55,7 @@ pip install nexradaws
 pip install arm-pyart
 pip install netCDF4
 ```
+### 8) Download and install NodeJS and npm
+https://nodejs.org/dist/v12.16.0/node-v12.16.0-x64.msi and add installation directory to path environment variables
+  
+## Components:
