@@ -1,9 +1,9 @@
 # DEVOTEam 
 
-Maintainers:
-Manuja Bandal
-Sumant Gaopande
-Sainath Parkala
+Maintainers:  
+Manuja Bandal  
+Sumant Gaopande  
+Sainath Parkala  
 
 ## System-setup for windows OS: 
 
