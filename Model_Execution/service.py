@@ -1,4 +1,8 @@
+# pip install nexradaws
+# pip install arm-pyart
+# pip install netCDF4
 import base64
+
 import nexradaws
 import pyart
 import pika
@@ -24,8 +28,11 @@ print('Model Execution waiting for messages')
 
 
 def callback(ch, method, properties, body):
+    import pickle
+
     body = pickle.loads(body)
     key = body['key']
+    print("got key:", key)
     radar_object = body['message']
 
     conn = nexradaws.NexradAwsInterface()
@@ -40,6 +47,17 @@ def callback(ch, method, properties, body):
         display.set_limits((-150, 150), (-150, 150))
         plt.savefig(key + '.png')
 
+    # for item in os.getcwd():
+    #     if item.endswith(".png"):
+    #         os.remove(os.path.join(os.getcwd(), item))
+
+    print("Recieved with routing key:", method.routing_key, "Latest Data:", radar_object)
+
+    # img = Image.open(key + '.png')
+    # output_plot = io.BytesIO()
+    # img.save(output_plot, format=img.format)
+    # output_plot.close()
+    # output_plot = base64.b64encode(output_plot)
     with open(key + ".png", "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read())
 
@@ -58,8 +76,9 @@ def callback(ch, method, properties, body):
     channel_send.exchange_declare(exchange='Broker', exchange_type='direct')
 
     channel_send.basic_publish(exchange='Broker', routing_key='API_send', properties=pika.BasicProperties(
-        headers={'key': key}  
+        headers={'key': key}  # Add a key/value header
     ), body=encoded_string)
+    print("Sent from Model Analysis:")
     connection_send.close()
 
 
