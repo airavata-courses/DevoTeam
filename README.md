@@ -161,6 +161,7 @@ npm start
 
 ## User interaction with the system
 ```
+The system web app should be running on localhost:3000
 i) Sign-up and login to the system  
 ii) On the main page input data in forms(for radar field you can try KLTX, KIND)
 iii) Hit Find to initiate request/ get current process status/ or output plot and value if available
