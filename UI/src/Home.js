@@ -18,6 +18,7 @@ export default class HomeComponent extends Component {
             };
             this.onChange = this.onChange.bind(this);
             this.userInput = this.userInput.bind(this);
+            
 
         }
     }
@@ -29,10 +30,12 @@ export default class HomeComponent extends Component {
 
 
     }
+    
     componentWillMount() {
         console.log(this.state.id)
     }
 
+ 
     userInput() {
         if(this.state.isChange==true) {
             this.setState({
