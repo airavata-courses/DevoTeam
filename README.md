@@ -63,7 +63,6 @@ https://www.mongodb.com/download-center/community select windows x64 version and
 ```
 i) After installing go to services in windows and search for MongoDB, right click and click on start to start the server.
 ii) Go to MongoDB Compass Community a GUI tool to interact with the MongoDB server and select New connection. Enter mongodb://localhost:27017 and connect.  
-ii) Create database named "session" and create a collection in the database as "sessions".
 ```
 
 ### 10) Donwload & install MySQL server workbench  
