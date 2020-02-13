@@ -90,7 +90,8 @@ export default class HomeComponent extends Component {
                     this.setState(
                         {
                             output: response.data.max_spectrum_width,
-                            status: "Maximum spectrum width is: "
+                            status: "Maximum spectrum width is: ",
+                            imgurl: "data:image/png;base64, "+response.data.plot
 
                         }
                     )
@@ -104,7 +105,7 @@ export default class HomeComponent extends Component {
 
 
     render() {
-        let imgurl = "data:image/png;base64, "+this.state.plot
+       
         if (localStorage.getItem("isLogin") == "true") {
             return (
                 <React.Fragment>
@@ -208,7 +209,7 @@ export default class HomeComponent extends Component {
                              <h5><center>{this.state.status}   {this.state.output}</center></h5>
                             
 
-                            <img src={imgurl}/>
+                            <img src={this.state.imgurl}/>
 
 
                         </div>
