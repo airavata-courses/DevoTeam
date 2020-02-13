@@ -156,9 +156,10 @@ npm install
 npm start
 ```
 ## Pre-requisites for using the System:  
-```
 1) Currently supporting only chrome browser
 
-2) Add Moesif CORS plugin https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en-US  ```
+2) Add Moesif CORS plugin https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en-US 
 
 ## User interaction with the system
+```
+```
