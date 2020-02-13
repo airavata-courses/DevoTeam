@@ -6,21 +6,17 @@ import {default as UUID} from "node-uuid";
 
 export default class Sessions extends Component{
     constructor(props) {
+        
         super(props);{
             this.state={
                 email:"",
-                year:"",
-                month:"",
-                day:"",
-                radar:"",
-                key:""
             };
             this.getSession = this.getSession.bind(this);
         }
     }
-    componentWillMount() {
+    componentDidMount() {
         console.log("cdvbdskhv")
-       this.getSession();
+        this.getSession();
     }
     getSession(){
         var postData = {
@@ -38,6 +34,11 @@ export default class Sessions extends Component{
                 this.setState({
                     output: JSON.stringify(response.data)
                 });
+                console.log("abcv",response.data);
+                this.state.output.map((el, ind) => {
+                    console.log("ashvcjh",el);
+                    console.log("axa",el.email)
+                })
             })
             .catch(err => {
                 console.log(err);
@@ -47,36 +48,29 @@ export default class Sessions extends Component{
 
 
     render(){
-        console.log("eee:", this.state.output)
+        let sessions;
         return(
-
-             <div>
-               <p>
-                     <h3><center> History of your previous sessions here</center></h3>
-                   {/*}  //          {this.state.output.map((el, i) =>(
-            //             <div>
-            //                 style={{
-            //                 display: "inline-block",
-            //                 marginBottom: 18,
-            //                 marginRight: 18,
-            //                 marginLeft: 38,
-            //                 paddingTop: "0px",
-            //                 fontColor: "black"}}
-            //                 >
-            //
-            //                 <pre>Your input Year:{el.year}, Month:{el.month}, Day:{el.day}, Radar station:{el.radar}</pre>
-            //
-            //
-            //             </div>
-
-                   // ))}
-
-
-{/*rgrg: {this.state.output[0].email}*/}
-
-                </p>
+            <>
+            <div><br></br><center>
+                <h3>History of previous sessions</h3>
+                </center>
             </div>
+            <div  style={{
+                display: "inline-block",
+                marginBottom: 18,
+                marginRight: 18,
+                marginLeft: 38,
+                paddingTop: "0px",
+                fontColor: "black"}}>
+                    <br></br><br></br>
+                    {this.state.output}<br></br>
 
-        );
+
+
+            </div>
+           </>
+            
+        )
+            
     }
 }
