@@ -165,3 +165,10 @@ i) Sign-up and login to the system
 ii) On the main page input data in forms(for radar field you can try KLTX, KIND)
 iii) Hit Find to initiate request/ get current process status/ or output plot and value if available
 ```
+
+## Citations:
+Citing all sources of documenation and code used to develop our system
+https://nexradaws.readthedocs.io/en/latest/Tutorial.html#Working-with-LocalNexradFile-objects
+https://data.nodc.noaa.gov/cgi-bin/iso?id=gov.noaa.ncdc:C00345
+https://redis.io/documentation
+https://www.rabbitmq.com/documentation.html
