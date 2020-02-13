@@ -63,19 +63,35 @@ export default class HomeComponent extends Component {
                 console.log("Plot image:", response.data)
                 this.setState({
                     data: response.data,
-                    spectrum_width: response.data.max_spectrum_width,
+                   
                     plot: response.data.plot,
                 });
                 if (response["data"] == "Sent user input to micro-services")
                 {
-                    render:
-                    {
-                        return (
-                            <div>
-                                <h2>  {this.state.data}</h2>
-                            </div>
-                        );
-                    }
+                   this.setState(
+                       {
+                            output: response.data,
+                            status: "Status:  "
+                       }
+                   )
+                }
+                else if(response["data"] == "Request in process please wait"){
+                    this.setState(
+                        {
+                             output: response.data,
+                             status: "Status:  "
+                        }
+                    )  
+                }
+                else{
+                    this.setState(
+                        {
+                            output: response.data.max_spectrum_width,
+                            status: "Maximum spectrum width is: "
+
+                        }
+                    )
+                    
                 }
 
             })
@@ -186,6 +202,8 @@ export default class HomeComponent extends Component {
                         </Form>
                         <div>
 
+                             <h5><center>{this.state.status}   {this.state.output}</center></h5>
+                            
 
                             <img src={imgurl}/>
 
