@@ -113,7 +113,7 @@ export default class HomeComponent extends Component {
                     <div>
                         <br></br>
                         <br></br>
-                        <h4><center>Find your weather</center></h4>
+                        <h4><center>Please enter inputs to plot a reflectivity graph</center></h4>
                         <Form>
                             <Link to={{ pathname: "/Sessions" }} style={{ float: "right", fontSize:"30px" }}>
                                 Sessions
