@@ -93,11 +93,11 @@ PRIMARY KEY (email)
 ### 11) Download and install JDK
 https://download.oracle.com/otn-pub/java/jdk/13.0.2+8/d4173c853231432d94f001e99d882ca7/jdk-13.0.2_windows-x64_bin.exe
 
-### 12) Download & install exlipse with springboot and Maven
+### 12) Download & install eclipse with springboot and Maven
 https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2019-12/R/eclipse-inst-win64.exe
 ```
 Open Eclipse IDE
-Click on Help -> Eclipse marketplace and search 
+Click on Help -> Eclipse marketplace->search 
 select the second entry which is Spring Tools 3 Add-on for Spring Tools 4 3.9.12.CI
 and install
 ```
