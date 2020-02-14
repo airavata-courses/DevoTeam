@@ -166,8 +166,13 @@ npm start
 ```
 The system web app should be running on localhost:3000
 i) Sign-up and login to the system  
-ii) On the main page input data in forms(for radar field you can try KLTX, KIND)
-iii) Hit Find to initiate request/ get current process status/ or output plot and value if available
+ii) On the main page input data in the following format:
+- year input format: Mention the complete year like 2020 or 2016 etc.  
+- month input format: it is a 2 digit entry field - 01 or 11  
+- day input format: it is a 2 digit entry field - 01 or 25  
+- radar: input to be bold KLTX / KIND / KAMA  
+iii) while plot is not displayed:  
+          Hit Find(Do not change page or navigate elsewhere)
 ```
 
 ## Citations:
