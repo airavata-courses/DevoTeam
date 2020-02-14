@@ -5,6 +5,9 @@ Manuja Bandal
 Sumant Gaopande  
 Sainath Parkala  
 
+# System overview:
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/Architecture.png)
+
 # System-setup for windows OS:   
 ## Pre-requisites:   
 ### 1) Download & install Erlang: http://erlang.org/download/otp_win64_22.2.exe  
