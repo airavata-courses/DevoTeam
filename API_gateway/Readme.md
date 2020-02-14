@@ -1,1 +1,1 @@
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/API_gateway/API_design.png)
