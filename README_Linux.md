@@ -195,7 +195,9 @@ npm start
 ### 6) User Management  
 ```
 i) Naviagate to application.properties file: cd DevoTeam/User_Management/src/main/resources  
-Open the application.properties file and change the password to the password you set above.
+Open the application.properties file and change the password to the password you set above.  
+Open a terminal and navigate to: cd /home/sumant/Desktop/git/DevoTeam/User_Management  
+enter: sudo mvn clean install && sudo mvn spring-boot:run
 ```
 
 ### 7) User Interface
