@@ -75,22 +75,22 @@ ii) sudo pip3 install numpy
 
 ### 5) Install pika - rabbitmq client for python  
 ```
-pip3 install pika
+sudo pip3 install pika
 ```
 
 ### 6) Install nexradaws - python module to access Nexrad radar data 
 ```
-pip3 install nexradaws
+sudo pip3 install nexradaws
 ```  
 
 ### 7) Install pyart, netCDF4, scipy, matplotlib, pandas:
 Open a terminal and enter:  
 ```
-pip3 install arm-pyart
-pip3 install netCDF4
-pip3 install scipy
-pip3 install matplotlib
-pip3 install pandas
+sudo pip3 install arm-pyart
+sudo pip3 install netCDF4
+sudo pip3 install scipy
+sudo pip3 install matplotlib
+sudo pip3 install pandas
 ```
 ### 8) Download and install NodeJS and npm
 ```
@@ -150,7 +150,7 @@ ii) sudo apt install default-jdk
 iii) sudo gedit ~/.bashrc and append the following to the end of the file:   
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 PATH=$PATH:$JAVA_HOME/bin
-iv) gedit /etc/environment and remove anything else in the file and copy paste the following:   
+iv) sudo gedit /etc/environment and remove anything else in the file and copy paste the following:   
 JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"  
 PATH=$PATH:$JAVA_HOME/bin  
 v) sudo apt-get install maven  
@@ -162,34 +162,34 @@ git clone https://github.com/airavata-courses/DevoTeam.git
 ```
 open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam/Data_Ingestion  
-python3 service.py
+sudo python3 service.py
 ```
 ### 2) Model Analysis:
 ```
 open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam/Model_Execution
-python service.py
+sudo python3 service.py
 ```
 ### 3) Post-processing & analysis:
 ```
 open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam/Post_processing
-python service.py
+sudo python3 service.py
 ```  
 ### 4) Session Management:     
 ```
 open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam/Session_Management
-npm install
-node index.js
+sudo npm install
+sudo node index.js
 ```  
 
 ### 5) API   
 ```
 Open a command prompt and navigate to the directory where you cloned the repository  
 cd DevoTeam/API_gateway
-npm install
-npm start
+sudo npm install
+sudo npm start
 ```  
 
 ### 6) User Management  
@@ -204,8 +204,8 @@ enter: sudo mvn clean install && sudo mvn spring-boot:run
 ```
 Open command prompt and naviagte to UI directory in the directory where you would pull the code
 cd DevoTeam/UI
-npm install
-npm start
+sudo npm install
+sudo npm start
 ```
 
 
