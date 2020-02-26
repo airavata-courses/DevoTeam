@@ -109,24 +109,15 @@ https://dev.mysql.com/downloads/file/?id=492814
 ```
 1. Install the MySQL server by using the Ubuntu operating system package manager: 
 Command :-       sudo apt-get install mysql-server
-2. After the installation is complete, you can start the database service by running the following command. If the service is already started, a message informs you that the service is already running:
-Command:- sudo systemctl start mysql
-3. At the command prompt, run the following command to launch the mysql shell and enter: 
+Set passowrd
+2. At the command prompt, run the following command to launch the mysql shell and enter: 
 Command:- sudo mysql -u root -p
-4. When you’re prompted for a password press Enter to submit no password.
-The following mysql shell prompt should appear:
-mysql>
-5. If you logged in by entering a blank password, you have to create the password.  
-For versions earlier than MySQL 5.7, enter the following command in the mysql shell, replace password with your new password:
-UPDATE mysql.user SET Password = PASSWORD('password') WHERE User = 'root';  
-For version MySQL 5.7 and later, enter the following command in the mysql shell, replacing password with your new password:  
-UPDATE mysql.user SET authentication_string = PASSWORD('password') WHERE User = 'root';  
-6. To make the change take effect, reload the stored user information with the following command:
-FLUSH PRIVILEGES;
-7. Type Command: CREATE DATABASE devoteam_user;
-8. Use database :
-use devoteam_user;
-9. Create Table:
+3. When you’re prompted for a password press Enter to submit password.
+4. Create database 
+Command: CREATE DATABASE devoteam_user;
+5. Use database :
+Command: use devoteam_user;
+6. Create Table:
 CREATE TABLE users (
 
 email varchar(45) NOT NULL,
