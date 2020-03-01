@@ -108,10 +108,14 @@ ii) sudo systemctl start mongodb
 https://dev.mysql.com/downloads/file/?id=492814
 ```
 1. Install the MySQL server by using the Ubuntu operating system package manager: 
-Command :-       sudo apt-get install mysql-server
-Set passowrd
+Command : sudo apt-get install mysql-server
+2. Check for status of mysql server
+Command : sudo systemctl status mysql
+3. Set password using:
+Command: sudo mysql_secure_installation
+Just set password and skip following security features.
 2. At the command prompt, run the following command to launch the mysql shell and enter: 
-Command:- sudo mysql -u root -p
+Command: sudo mysql -u root -p
 3. When you’re prompted for a password press Enter to submit password.
 4. Create database 
 Command: CREATE DATABASE devoteam_user;
