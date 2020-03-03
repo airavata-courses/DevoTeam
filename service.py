@@ -4,7 +4,9 @@ import sys
 import nexradaws
 import pickle
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+print('Data Ingestion service waiting for messages')
+
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-server', 5672))
 channel = connection.channel()
 
 channel.exchange_declare(exchange='Broker', exchange_type='direct')

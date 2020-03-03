@@ -1,0 +1,11 @@
+version: '3'
+services:
+ data-ingestion:
+  build: .
+  depends_on:
+  - "rabbitmq-server" 
+ rabbitmq-server:
+  image: 'rabbitmq'
+  
+ 
+
