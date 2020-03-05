@@ -6,7 +6,7 @@ import pickle
 
 print('Data Ingestion service waiting for messages')
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq-server', 5672))
+connection = pika.BlockingConnection(pika.ConnectionParameters('rabbit'))
 channel = connection.channel()
 
 channel.exchange_declare(exchange='Broker', exchange_type='direct')
@@ -41,7 +41,7 @@ def callback(ch, method, properties, body):
 
     serialized_obj = pickle.dumps({'key': key, 'message': availscans[0]})
 
-    connection_send = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
+    connection_send = pika.BlockingConnection(pika.ConnectionParameters(host='rabbit'))
     channel_send = connection_send.channel()
 
     channel_send.exchange_declare(exchange='Broker', exchange_type='direct')

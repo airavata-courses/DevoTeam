@@ -1,11 +1,57 @@
-version: '3'
+version: '2.1'
 services:
- data-ingestion:
-  build: .
-  depends_on:
-  - "rabbitmq-server" 
- rabbitmq-server:
-  image: 'rabbitmq'
-  
- 
+  data_ingestion:
+    build: ./Data_Ingestion
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
+
+  rabbit:
+    build: ./rabbit_server
+    ports: 
+        - "15672:15672"
+        - "5672:5672"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  api:
+    build: ./API_gateway
+    depends_on:
+      redis:
+        condition: service_healthy
+    links: 
+        - redis
+        - rabbit
+    ports:
+     - "8081:8081"
+
+  redis:
+    build: ./redis
+    ports: 
+        - "6379:6379"
+    healthcheck:
+        test: ["CMD", "redis-cli"]
+        interval: 15s
+        timeout: 10s
+        retries: 5
+
+  model-exec:
+    build: ./Model_Execution
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
+  post-processing:
+    build: ./Post_processing
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
 
