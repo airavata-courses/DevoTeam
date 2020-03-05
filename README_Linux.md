@@ -200,6 +200,7 @@ enter: sudo mvn clean install && sudo mvn spring-boot:run
 Open command prompt and naviagte to UI directory in the directory where you would pull the code
 cd DevoTeam/UI
 sudo npm install
+sudo npm install webpack -g 
 sudo npm start
 ```
 
