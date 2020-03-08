@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk
 RUN mkdir User_Management_Container
 RUN apt-get update
 RUN apt-get install -y maven
