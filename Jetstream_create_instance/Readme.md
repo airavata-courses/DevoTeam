@@ -17,7 +17,7 @@
 7) Replace the id_rsa & id_rsa.pub files with the keys generated in the above steps.
 
 
-###If you dont have a networked configured:
+### If you dont have a networked configured:
 1) openstack network create ${OS_USERNAME}-api-net
 
 2) Verify that the private network was created	
