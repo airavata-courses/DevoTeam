@@ -41,3 +41,13 @@
    Verify that the router has been connected to the gateway	
    openstack router show ${OS_USERNAME}-api-router
 
+### Creating instances:
+1) source <RC_FILE>
+2) run create_master.sh and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
+If you enter the ip incorrectly run this in a terminal after sourcing .RC file: openstack server add floating ip <master_alias> <FLOATING_IP>
+
+3) run create_slave_1.sh and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
+If you enter the ip incorrectly run this in a terminal after sourcing .RC file: openstack server add floating ip <slave_alias> <FLOATING_IP>
+
+4) run create_slave_2.sh and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
+If you enter the ip incorrectly run this in a terminal after sourcing .RC file: openstack server add floating ip <slave_alias> <FLOATING_IP>
