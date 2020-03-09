@@ -42,7 +42,7 @@
    openstack router show ${OS_USERNAME}-api-router
 
 ### Creating instances:
-####Open each .sh file and replace the <master_alias> and <slave_alias> with a name of your choice to identify your intsances uniquely.  
+#### Open each .sh file and replace the <master_alias> and <slave_alias> with a name of your choice to identify your intsances uniquely.  
 1) source <RC_FILE>
 2) run create_master.sh and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
 If you enter the ip incorrectly run this in a terminal after sourcing .RC file: openstack server add floating ip <master_alias> <FLOATING_IP>
