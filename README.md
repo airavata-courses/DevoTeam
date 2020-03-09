@@ -3,7 +3,7 @@
 Maintainers:  
 Manuja Bandal  
 Sumant Gaopande  
-Sainath Parkala  
+Sainath Parakala  
 
 # System overview:
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/Architecture.png)
