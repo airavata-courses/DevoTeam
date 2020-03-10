@@ -1,6 +1,6 @@
 ## We have used ubuntu as the instance OS, all installations and scripts are tailored for ubuntu
 
-### Ansible installation
+### Ansible installation on Ubuntu
 citing https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-18-04#step-1-%E2%80%94-installing-ansible for ansible installation guidelines
 
 1) sudo apt-add-repository ppa:ansible/ansible
