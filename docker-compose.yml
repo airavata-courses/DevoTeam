@@ -79,6 +79,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=qwerty1234
       - MYSQL_DATABASE=devoteam_user
+    ports:
+      - "3306:3306"
   ui:
     build:
      context: ./UI

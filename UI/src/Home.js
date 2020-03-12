@@ -55,7 +55,7 @@ export default class HomeComponent extends Component {
 
         return axios({
             method: "post",
-            url: "http://localhost:8081/weather",
+            url: "http://api:8081/weather",
             headers: {
                 "Access-Control-Allow-Origin": "*"
 

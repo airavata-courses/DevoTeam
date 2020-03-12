@@ -127,7 +127,7 @@ class Header extends Component {
     };
     return axios({
       method: "post",
-      url: "http://localhost:8080/getUser",
+      url: "http://user_management-service:8082/getUser",
       headers: { "Access-Control-Allow-Origin": "*" },
       data: postData
     })
@@ -155,7 +155,7 @@ class Header extends Component {
     };
     return axios({
       method: "post",
-      url: "http://localhost:8080/updateUserProfile",
+      url: "http://user_management-service:8082/updateUserProfile",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -179,7 +179,7 @@ class Header extends Component {
 
     return axios({
       method: "post",
-      url: "http://localhost:8080/login",
+      url: "http://user_management-service:8082/login",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -230,7 +230,7 @@ class Header extends Component {
 
     return axios({
       method: "post",
-      url: "http://localhost:8080/signUp",
+      url: "http://user_management-service:8082/signUp",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -248,7 +248,7 @@ class Header extends Component {
   sendEmail(user) {
     return axios({
       method: "post",
-      url: "http://localhost:8080/welcomeEmail",
+      url: "http://user_management-service:8082/welcomeEmail",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
