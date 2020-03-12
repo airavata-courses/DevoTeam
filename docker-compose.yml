@@ -82,5 +82,11 @@ services:
      # - user_management-service-network
     environment:
       - MYSQL_ROOT_PASSWORD=qwerty1234
-      - MYSQL_DATABASE=devoteam_user  
+      - MYSQL_DATABASE=devoteam_user
+   UI:
+    build:
+     context: ./UI
+     dockerfile: Dockerfile
+     ports:
+      - "3000:3000"
 
