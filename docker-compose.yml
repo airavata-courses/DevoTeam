@@ -71,22 +71,18 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
-    #networks:
-     # - user_management-service-network
     depends_on:
       - mysqldb
  
   mysqldb:
     image: mysql:8
-    #networks:
-     # - user_management-service-network
     environment:
       - MYSQL_ROOT_PASSWORD=qwerty1234
       - MYSQL_DATABASE=devoteam_user
-   UI:
+  ui:
     build:
      context: ./UI
      dockerfile: Dockerfile
-     ports:
+    ports:
       - "3000:3000"
 
