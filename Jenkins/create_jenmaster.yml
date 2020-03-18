@@ -1,0 +1,37 @@
+- hosts: jenmaster
+  become: yes
+  tasks:
+   - name: install APT Transport HTTPS
+     apt:
+       name: apt-transport-https
+       state: present
+   
+   - name: install jdk
+     apt:
+       name: openjdk-8-jdk
+       state: present
+       update_cache: true
+
+   - name: add Jenkins repository to the system
+     apt_key:
+       url: https://pkg.jenkins.io/debian/jenkins.io.key
+       state: present
+
+   - name: Add specified repository into sources list using specified filename.
+     apt_repository:
+       repo: deb http://pkg.jenkins.io/debian-stable binary/
+       state: present
+       filename: jenkins.list
+
+   - name: Update and upgrade apt packages
+     become: true
+     apt:
+       upgrade: yes
+       update_cache: yes
+       cache_valid_time: 86400
+
+   - name: install Jenkins
+     apt:
+       name: jenkins
+       state: present
+       update_cache: true
