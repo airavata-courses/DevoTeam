@@ -20,14 +20,6 @@ pipeline {
                 }   
             }
         }
-        stage('Test UI') {
-            steps {
-                 dir('UI/') {
-                       checkout scm
-                       sh 'npm test'
-                 }
-            }
-        }  
         
     }
 }
