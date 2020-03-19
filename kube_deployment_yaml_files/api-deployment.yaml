@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+   matchLabels: 
+    app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - image: sumant29/sumant29:API
+        name: api
+        ports:
+        - containerPort: 8081
+      restartPolicy: Always
+status: {}
