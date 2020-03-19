@@ -79,8 +79,8 @@ const weather = async (req, res, next) => {
 
   key = email + '_' + t_id;
 
-//  const response = await axios.post('http://localhost:9000/save', {...req.body} );
-//  const data = console.log(response.data);
+  const response = await axios.post('http://session:9000/save', {...req.body} );
+  const data = console.log(response.data);
 
 
   console.log("key:", key)
