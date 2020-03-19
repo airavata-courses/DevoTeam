@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 
-router.post ('/save', async (req, res, next) => {
+/*router.post ('/save', async (req, res, next) => {
     const response = await axios.post('http://session:9000/save', {...req.body} );
     const data =
     console.log(response.config.data);
     res.status('201').send('saved');
-});
+});*/
 
 router.post('/fetch', async(req, res, next) => {
     const response = await axios.post('http://session:9000/fetch', {...req.body} );
