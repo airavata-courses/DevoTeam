@@ -16,7 +16,7 @@ const Bounce = styled.div`
 `;
 
 //Provide ip and port for the call
-var ip="149.165.169.244:8082";
+var ip="149.165.169.244:30002";
 var port='';
 var urlc="http://"+ip;
 class Header extends Component {
