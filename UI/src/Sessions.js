@@ -5,7 +5,7 @@ import localStorage from "localStorage";
 import {default as UUID} from "node-uuid";
 
 //Provide ip and port for the call
-var ip="149.165.169.244";
+var ip="149.165.169.244:8081";
 var urlc="http://"+ip;
 export default class Sessions extends Component{
     constructor(props) {
