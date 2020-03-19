@@ -7,3 +7,5 @@ RUN npm install
 COPY . . 
 
 CMD [ "npm", "start"] 
+
+EXPOSE 9000
