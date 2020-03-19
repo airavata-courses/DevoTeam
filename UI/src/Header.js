@@ -15,8 +15,13 @@ const Bounce = styled.div`
   animation: 3s ${keyframes`${bounce}`} infinite;
 `;
 
+//Provide ip and port for the call
+var ip="149.165.169.244";
+var urlc="http://"+ip;
 class Header extends Component {
+  
   constructor(props) {
+    //http://user_management-service:8082/
     super(props);
     this.state = {
       isLogin: false,
@@ -69,7 +74,8 @@ class Header extends Component {
   };
 
   componentDidMount() {
-    console.log(localStorage);
+    //console.log(localStorage);
+    console.log("URL ISSSSS"+urlc);
     this.getUser();
   }
 
@@ -127,7 +133,7 @@ class Header extends Component {
     };
     return axios({
       method: "post",
-      url: "http://user_management-service:8082/getUser",
+      url: urlc+"/getUser",
       headers: { "Access-Control-Allow-Origin": "*" },
       data: postData
     })
@@ -155,7 +161,7 @@ class Header extends Component {
     };
     return axios({
       method: "post",
-      url: "http://user_management-service:8082/updateUserProfile",
+      url: urlc+"/updateUserProfile",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -179,7 +185,7 @@ class Header extends Component {
 
     return axios({
       method: "post",
-      url: "http://user_management-service:8082/login",
+      url: urlc+"/login",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -230,7 +236,7 @@ class Header extends Component {
 
     return axios({
       method: "post",
-      url: "http://user_management-service:8082/signUp",
+      url: urlc+"/signUp",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -248,7 +254,7 @@ class Header extends Component {
   sendEmail(user) {
     return axios({
       method: "post",
-      url: "http://user_management-service:8082/welcomeEmail",
+      url: urlc+"/welcomeEmail",
       headers: {
         "Access-Control-Allow-Origin": "*"
       },

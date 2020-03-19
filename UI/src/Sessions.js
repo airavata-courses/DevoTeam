@@ -4,6 +4,9 @@ import axios from "axios";
 import localStorage from "localStorage";
 import {default as UUID} from "node-uuid";
 
+//Provide ip and port for the call
+var ip="149.165.169.244";
+var urlc="http://"+ip;
 export default class Sessions extends Component{
     constructor(props) {
         
@@ -25,7 +28,7 @@ export default class Sessions extends Component{
         console.log(postData)
         return axios({
             method: "post",
-            url: "http://api:8081/sessions/fetch",
+            url: urlc+"/sessions/fetch",
             headers: { "Access-Control-Allow-Origin": "*" },
             data: postData
         })

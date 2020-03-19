@@ -6,6 +6,10 @@ import axios from "axios";
 
 //import LandingPage from './LandingPage'
 import localStorage from "localStorage";
+
+//Provide ip and port for the call
+var ip="149.165.169.244";
+var urlc="http://"+ip;
 export default class HomeComponent extends Component {
     constructor(props) {
         super(props);{
@@ -55,7 +59,7 @@ export default class HomeComponent extends Component {
 
         return axios({
             method: "post",
-            url: "http://api:8081/weather",
+            url: urlc+"/weather",
             headers: {
                 "Access-Control-Allow-Origin": "*"
 
