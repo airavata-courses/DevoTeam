@@ -123,6 +123,11 @@ pipeline {
             dir('kube_deployment_yaml_files/') {
             sh '''
             ssh -i id_rsa ubuntu@149.165.169.244
+            sudo apt install git
+            git clone https://github.com/airavata-courses/DevoTeam.git
+            cd DevoTeam
+            git checkout Jenkins_build_test
+            cd kube_deployment_yaml_files
             kubectl apply -f redis-deployment.yaml
             kubectl apply -f redis-service.yaml
             kubectl apply -f rabbit-deployment.yaml
