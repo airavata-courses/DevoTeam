@@ -9,7 +9,7 @@ const app = express();
 mongoose.connect('mongodb://localhost/session', {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: false
 });
 mongoose.Promise = global.Promise;
 
