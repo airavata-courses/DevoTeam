@@ -15,7 +15,8 @@ spec:
         app: user-management-service
     spec:
       containers:
-      - image: sumant29/sumant29:user_man
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:user_man
         name: user-management-service
         ports:
         - containerPort: 8082
