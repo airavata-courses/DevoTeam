@@ -134,3 +134,16 @@ iv) Under SCM-> Select Git-> add repo url and branch(Milestone-2)-> Apply
 
 ### STEP 6: Deploying the system:
 Go to your Jenkins job and trigger build now OR Make a dummy commit to (Milestone-2)branch to auto-trigger it
+
+### To check the system:
+ssh ubunut@<master_ip>  
+kubectl get pods  
+kubectl get deployments  
+kubectl get services  
+
+### Current system ips:  
+To check currently deployed system: http://149.165.169.244:31515/   
+Jenkins master: 149.165.169.235:8081 username: Manuja password: manuja17  
+Kubernetes master: 149.165.169.244  
+Kubernetes slave1: 149.165.170.1  
+Kubernetes slave1: 149.165.170.15  
