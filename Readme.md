@@ -9,8 +9,9 @@ citing https://www.digitalocean.com/community/tutorials/how-to-install-and-confi
 
 3) sudo apt install ansible
 
-4) sudo nano /etc/ansible/hosts
+4) sudo nano /etc/ansible/hosts  
 Paste:    
+```
 [servers]  
 <master_alias> ansible_host=<master_ip>  
 <slave1_alias> ansible_host=<slave_ip>  
@@ -18,6 +19,7 @@ Paste:
 
 [servers:vars]  
 ansible_python_interpreter=/usr/bin/python3
+```
 
 ### STEP 2: Create Jetstream instances for 1 Kubernetes master and 2 workers and 1 Jenkins master 
 #### Citing: https://iujetstream.atlassian.net/wiki/spaces/JWT/overview for commands and information
