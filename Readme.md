@@ -142,6 +142,8 @@ kubectl get deployments
 kubectl get services  
 
 ### Current system ips:  
+Currently supporting only chrome browser  
+Add Moesif CORS plugin https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc?hl=en-US   
 To check currently deployed system: http://149.165.169.244:31515/   
 Jenkins master: 149.165.169.235:8081 username: Manuja password: manuja17  
 Kubernetes master: 149.165.169.244  
