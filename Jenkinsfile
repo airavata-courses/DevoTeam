@@ -123,7 +123,8 @@ pipeline {
             dir('kube_deployment_yaml_files/') {
             sh '''
             sudo ssh -i id_rsa ubuntu@149.165.169.244 "rm -rf DevoTeam &&
-            sudo docker login--username=devoteam1 --password=team@1234 &&
+            sudo api install gnupg2 pass -y &&
+            sudo docker login --username=devoteam1 --password=team@1234 &&
             sudo apt install git -y &&
             git clone https://github.com/airavata-courses/DevoTeam.git &&
             cd DevoTeam &&
