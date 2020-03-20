@@ -18,7 +18,8 @@ spec:
         io.kompose.service: redis
     spec:
       containers:
-      - image: sumant29/sumant29:redis
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:redis
         name: redis
         ports:
         - containerPort: 6379
