@@ -14,7 +14,6 @@ pipeline {
             }
         }
 
-        }
         stage('Build UI Service') {
             steps {
                 dir('UI/') {
