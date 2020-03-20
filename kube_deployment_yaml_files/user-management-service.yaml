@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/1/./kompose-linux-amd64 convert
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: user-management-service
+  name: user-management-service
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "8082"
+    port: 8082
+    targetPort: 8082
+    nodePort: 30002
+  selector:
+    app: user-management-service
