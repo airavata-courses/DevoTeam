@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - imagePullPolicy: Always
-        image: sumant29/sumant29:ui
+        image: devoteam1/devoteam:ui
         name: ui
         ports:
         - containerPort: 3000
