@@ -114,9 +114,12 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 Copy this and paste into the browser
 
 7) Go to Global Tool Configuration in Manage Jenkins and set values for JDK and git:
-![alt text](https://github.com/airavata-courses/DevoTeam/blob/master/JenkinsGlobalConfig.PNG)
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Milestone-2/JenkinsGlobalConfig.PNG)
 
+8) Install Github integration plugin and Job DSL plugin:
+```
+i) Manage Jenkins->Manage Plugins-> Available ==> search Github integration and install  
+ii) Manage Jenkins->Manage Plugins-> Available ==> search Job DSL and install
+```
 
-Verify the cluster:  
-ssh ubuntu@jenkins_ip  
-kubectl get nodes  
+### STEP 5: 
