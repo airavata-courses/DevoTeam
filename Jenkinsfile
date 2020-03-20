@@ -6,7 +6,7 @@ pipeline {
                 dir('User_Management/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:user_man .
+                       sudo docker build --no-cache -t devoteam1/devoteam:user_man .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:user_man
                        '''
@@ -19,7 +19,7 @@ pipeline {
                 dir('UI/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:ui .
+                       sudo docker build --no-cache -t devoteam1/devoteam:ui .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:ui
                        '''
@@ -32,7 +32,7 @@ pipeline {
                 dir('API_gateway/') {
                       
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:API .
+                       sudo docker build --no-cache -t devoteam1/devoteam:API .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:API
                        '''
@@ -45,7 +45,7 @@ pipeline {
                 dir('Data_Ingestion/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:Data_Ingestion .
+                       sudo docker build --no-cache -t devoteam1/devoteam:Data_Ingestion .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:Data_Ingestion
                        '''
@@ -58,7 +58,7 @@ pipeline {
                 dir('Model_Execution/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:Model_Execution .
+                       sudo docker build --no-cache -t devoteam1/devoteam:Model_Execution .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:Model_Execution
                        '''
@@ -71,7 +71,7 @@ pipeline {
                 dir('UI/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:Post_processing .
+                       sudo docker build --no-cache -t devoteam1/devoteam:Post_processing .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:Post_processing
                        '''
@@ -84,7 +84,7 @@ pipeline {
                 dir('redis/') {
                        
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:redis .
+                       sudo docker build --no-cache -t devoteam1/devoteam:redis .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:redis
                        '''
@@ -97,7 +97,7 @@ pipeline {
                 dir('Session_Management/') {
                       
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:session .
+                       sudo docker build --no-cache -t devoteam1/devoteam:session .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:session
                        '''
@@ -110,7 +110,7 @@ pipeline {
                 dir('rabbit_server/') {
                       
                        sh '''
-                       sudo docker build -t devoteam1/devoteam:rabbit_server .
+                       sudo docker build --no-cache -t devoteam1/devoteam:rabbit_server .
                        sudo docker login --username=devoteam1 --password=team@1234
                        sudo docker push devoteam1/devoteam:rabbit_server
                        '''
@@ -123,6 +123,7 @@ pipeline {
             dir('kube_deployment_yaml_files/') {
             sh '''
             sudo ssh -i id_rsa ubuntu@149.165.169.244 "rm -rf DevoTeam &&
+            sudo docker login--username=devoteam1 --password=team@1234 &&
             sudo apt install git -y &&
             git clone https://github.com/airavata-courses/DevoTeam.git &&
             cd DevoTeam &&
