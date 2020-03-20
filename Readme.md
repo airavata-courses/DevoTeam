@@ -122,4 +122,15 @@ i) Manage Jenkins->Manage Plugins-> Available ==> search Github integration and 
 ii) Manage Jenkins->Manage Plugins-> Available ==> search Job DSL and install
 ```
 
-### STEP 5: 
+### STEP 5: Create Jenkins Pipeline
+i) New iterm-> Select Pipeline ->Give a name-> Click Ok  
+ii) Under the pipeline section -> Select Pipeline script from SCM  
+iii) Under build trigger section select poll scm -> add  
+```
+* * * * *
+```  
+to Schedule this enables it to trigger a build on every commit 
+iv) Under SCM-> Select Git-> add repo url and branch(Milestone-2)-> Apply
+
+### STEP 6: Deploying the system:
+Go to your Jenkins job and trigger build now OR Make a dummy commit to (Milestone-2)branch to auto-trigger it
