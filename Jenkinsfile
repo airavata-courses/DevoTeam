@@ -129,9 +129,24 @@ pipeline {
             git checkout Jenkins_build_test &&
             cd kube_deployment_yaml_files &&
             kubectl apply -f redis-deployment.yaml &&
-            kubectl apply -f redis-service.yaml"
-            
-            
+            kubectl apply -f redis-service.yaml &&
+            kubectl apply -f rabbit-deployment.yaml &&
+            kubectl apply -f rabbit-service.yaml &&
+            kubectl apply -f mysqldb-deployment.yaml &&
+            kubectl apply -f mysqldb-service.yaml &&
+            kubectl apply -f mongo-deployment.yaml &&
+            kubectl apply -f mongo-service.yaml &&
+            kubectl apply -f ui-deployment.yaml &&
+            kubectl apply -f ui-service.yaml &&
+            kubectl apply -f user-management-Deployment.yaml &&
+            kubectl apply -f user-management-service.yaml &&
+            kubectl apply -f session-deployment.yaml &&
+            kubectl apply -f session-service.yaml &&
+            kubectl apply -f data-ingestion-deployment.yaml &&
+            kubectl apply -f model-exec-deployment.yaml &&
+            kubectl apply -f post-processing-deployment.yaml &&
+            kubectl apply -f api-deployment.yaml &&
+            kubectl apply -f api-service.yaml"
             '''
             }
          }
