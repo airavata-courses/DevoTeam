@@ -18,7 +18,8 @@ spec:
         io.kompose.service: data-ingestion
     spec:
       containers:
-      - image: sumant29/sumant29:Data_Ingestion
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:Data_Ingestion
         name: data-ingestion
         resources: {}
       restartPolicy: Always
