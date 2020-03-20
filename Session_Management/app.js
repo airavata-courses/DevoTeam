@@ -41,7 +41,7 @@ app.post('/save', async (req, res, next) => {
       radar
     });
     session.save();
-    res.status(200).send('Saved user input to database');
+    return res.status(201).send('Saved user input to database');
   } catch (error) {
     console.log(error);
   }
@@ -50,9 +50,10 @@ app.post('/save', async (req, res, next) => {
 app.post('/fetch', async (req, res, next) => {
   try {
     const sessionData = await Session.find({ ...req.body }).exec();
-    res.status(200).json(sessionData);
+    return res.status(200).json(sessionData);
   } catch (error) {
     console.log(error);
+    return res.status(500).send("Internal server error");
   }
 });
 
