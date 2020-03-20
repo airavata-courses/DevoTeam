@@ -1,0 +1,23 @@
+
+Error: write ECONNRESET
+    at afterWriteDispatched (internal/stream_base_commons.js:154:25)
+    at writeGeneric (internal/stream_base_commons.js:145:3)
+    at Socket._writeGeneric (net.js:780:11)
+    at Socket._write (net.js:792:8)
+    at doWrite (_stream_writable.js:454:12)
+    at writeOrBuffer (_stream_writable.js:436:5)
+    at Socket.Writable.write (_stream_writable.js:327:11)
+    at Connection.C.sendMethod (/app/node_modules/amqplib/lib/connection.js:533:17)
+    at send (/app/node_modules/amqplib/lib/connection.js:182:16)
+    at onStart (/app/node_modules/amqplib/lib/connection.js:209:5)
+    at /app/node_modules/amqplib/lib/connection.js:166:32
+    at /app/node_modules/amqplib/lib/connection.js:160:12
+    at Socket.recv (/app/node_modules/amqplib/lib/connection.js:499:12)
+    at Object.onceWrapper (events.js:427:28)
+    at Socket.emit (events.js:321:20)
+    at emitReadable_ (_stream_readable.js:558:12) {
+  errno: -104,
+  code: 'ECONNRESET',
+  syscall: 'write'
+}
+
