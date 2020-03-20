@@ -8,6 +8,7 @@ import axios from "axios";
 import localStorage from "localStorage";
 
 //Provide ip and port for the call
+var temp=0;
 var ip="149.165.169.244:30000";
 var urlc="http://"+ip;
 export default class HomeComponent extends Component {
