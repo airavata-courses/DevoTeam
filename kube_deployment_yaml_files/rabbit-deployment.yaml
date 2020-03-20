@@ -18,7 +18,8 @@ spec:
         io.kompose.service: rabbit
     spec:
       containers:
-      - image: sumant29/sumant29:rabbit_server
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:rabbit_server
         name: rabbit
         ports:
         - containerPort: 15672
