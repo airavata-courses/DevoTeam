@@ -38,10 +38,6 @@ export default class Sessions extends Component{
                     output: JSON.stringify(response.data)
                 });
                 console.log("abcv",response.data);
-                this.state.output.map((el, ind) => {
-                    console.log("ashvcjh",el);
-                    console.log("axa",el.email)
-                })
             })
             .catch(err => {
                 console.log(err);
