@@ -15,7 +15,8 @@ spec:
         app: api
     spec:
       containers:
-      - image: sumant29/sumant29:API
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:API
         name: api
         ports:
         - containerPort: 8081
