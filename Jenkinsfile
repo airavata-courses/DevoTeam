@@ -122,7 +122,7 @@ pipeline {
          steps{
             dir('kube_deployment_yaml_files/') {
             sh '''
-            ssh -i id_rsa ubuntu@149.165.169.244 "sudo apt install git &&
+            ssh -i id_rsa ubuntu@149.165.169.244 "sudo apt install git -y &&
             git clone https://github.com/airavata-courses/DevoTeam.git &&
             cd DevoTeam &&
             git checkout Jenkins_build_test &&
