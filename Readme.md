@@ -20,6 +20,12 @@ Paste:
 [servers:vars]  
 ansible_python_interpreter=/usr/bin/python3
 ```
+5) sudo nano /etc/ansible/hosts
+```
+Under [ssh_connection] add:  
+ssh_args = -o ServerAliveInterval = 50
+
+```
 
 ### STEP 2: Create Jetstream instances for 1 Kubernetes master and 2 workers and 1 Jenkins master 
 #### Citing: https://iujetstream.atlassian.net/wiki/spaces/JWT/overview for commands and information
