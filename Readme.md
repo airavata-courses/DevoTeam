@@ -64,8 +64,59 @@ ansible_python_interpreter=/usr/bin/python3
    Verify that the router has been connected to the gateway	
    openstack router show ${OS_USERNAME}-api-router
 
-### Creating instances:
+#### Creating instances:
 #### Open create_instances.sh file and replace the <master_alias>, <slave_alias_1>, <slave_alias_2> and <Jenkins_alias> with a name of your choice to identify your intsances uniquely.  
 1) source <RC_FILE>
-2) run create_instances.sh and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
+2) git clone "https://github.com/airavata-courses/DevoTeam.git" and checkout Milestone-2 branch 
+3) run create_instances.sh using:  
+```
+bash create_instances.sh
+```
+and enter the floating ip when prompted(Dont make a mistake in this otherwise an ip will not be assigned to the instance)
 If you enter the ip incorrectly run this in a terminal after sourcing .RC file: openstack server add floating ip <alias> <FLOATING_IP>
+
+### STEP 3: Installing Kubernetes on the instances using ansible scripts:
+#### Citing https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-ubuntu-18-04
+for kubernetes installation guidelines and scripts for installation
+pre-requisite: git clone "https://github.com/airavata-courses/DevoTeam.git" and checkout Milestone-2 branch   
+1) Open the hosts file and enter your master and slave ip's
+
+2) Open a terminal and source .RC file and enter: cd /git/DevoTeam
+
+3) ansible-playbook -i hosts /kube-cluster/initial.yml
+
+4) ansible-playbook -i hosts /kube-cluster/kube-dependencies.yml
+
+5) ansible-playbook -i hosts /kube-cluster/master.yml
+
+6) ansible-playbook -i hosts /kube-cluster/workers.yml
+  
+Verify the cluster:  
+ssh ubuntu@master_ip  
+kubectl get nodes  
+
+### STEP 4: Install and confiure Jenkins on the instance
+pre-requisite: git clone "https://github.com/airavata-courses/DevoTeam.git" and checkout Milestone-2 branch   
+1) Open the hosts file and enter your Jenkins master ip
+
+2) Open a terminal and source .RC file and enter: cd /git/DevoTeam
+
+3) ansible-playbook -i hosts /Jenkins/initial.yml
+
+4) ansible-playbook -i hosts /Jenkins/create_jenmaster.yml
+
+5) Now go to your ip:8080 (default port) and it will prompt you for an administartor password
+
+6) ssh into your Jenkins instance and run:
+```
+cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+Copy this and paste into the browser
+
+7) Go to Global Tool Configuration in Manage Jenkins and set values for JDK and git:
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/master/JenkinsGlobalConfig.PNG)
+
+
+Verify the cluster:  
+ssh ubuntu@jenkins_ip  
+kubectl get nodes  
