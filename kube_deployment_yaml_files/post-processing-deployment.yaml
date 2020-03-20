@@ -18,7 +18,8 @@ spec:
         io.kompose.service: post-processing
     spec:
       containers:
-      - image: sumant29/sumant29:Post_processing
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:Post_processing
         name: post-processing
         resources: {}
       restartPolicy: Always
