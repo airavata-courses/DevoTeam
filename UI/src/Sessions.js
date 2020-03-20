@@ -28,7 +28,7 @@ export default class Sessions extends Component{
         console.log(postData)
         return axios({
             method: "post",
-            url: urlc+"/sessions/fetch",
+            url: urlc+"/fetch",
             headers: { "Access-Control-Allow-Origin": "*" },
             data: postData
         })
