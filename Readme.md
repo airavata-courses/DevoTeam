@@ -44,7 +44,7 @@ ssh_args = -o ServerAliveInterval = 50
 5) ssh-keygen -b 2048 -t rsa -f ${OS_USERNAME}-api-key -P ""
 6) openstack keypair create --public-key ${OS_USERNAME}-api-key ${OS_USERNAME}-api-key
 7) Navigate to cd ~/.ssh in a terminal
-8) Replace the id_rsa & id_rsa.pub files with the keys generated in the above steps.
+8) Replace the id_rsa & id_rsa.pub files with the keys generated in the above steps. 
 
 ### If you dont have a network configured:
 1) openstack network create ${OS_USERNAME}-api-net
