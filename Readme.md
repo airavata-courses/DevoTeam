@@ -155,3 +155,6 @@ Jenkins master: 149.165.169.235:8081 username: Manuja password: manuja17
 Kubernetes master: 149.165.169.244  
 Kubernetes slave1: 149.165.170.1  
 Kubernetes slave1: 149.165.170.15  
+
+
+
