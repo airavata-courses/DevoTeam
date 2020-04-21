@@ -1,4 +1,4 @@
-# DEVOTEam 
+# DEVOTeam 
 ## Please check the Milestone-2 branch for the latest version of system
 Maintainers:  
 Manuja Bandal  
