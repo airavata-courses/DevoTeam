@@ -1,4 +1,4 @@
-# DEVOTEam 
+# DEVOTeam 
 
 Maintainers:  
 Manuja Bandal  
