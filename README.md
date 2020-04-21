@@ -6,7 +6,7 @@ Sumant Gaopande
 Sainath Parkala  
 
 # System overview:
-![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/Architecture.png)
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Milestone-1/Architecture.png)
 
 # System-setup for windows OS:   
 ## Pre-requisites:   
