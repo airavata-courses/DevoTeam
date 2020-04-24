@@ -133,7 +133,7 @@ pipeline {
          steps{
             dir('kube_deployment_yaml_files/') {
             sh '''
-            sudo ssh -i id_rsa ubuntu@149.165.169.244 "rm -rf DevoTeam &&
+            sudo ssh -i id_rsa ubuntu@149.165.170.2 "rm -rf DevoTeam &&
             sudo apt install gnupg2 pass -y &&
             sudo docker login --username=devoteam1 --password=team@1234 &&
             sudo apt install git -y &&
