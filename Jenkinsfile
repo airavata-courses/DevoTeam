@@ -139,7 +139,7 @@ pipeline {
             sudo apt install git -y &&
             git clone https://github.com/airavata-courses/DevoTeam.git &&
             cd DevoTeam &&
-            git checkout Milestone-2 &&
+            git checkout IstioTest_M &&
             cd kube_deployment_yaml_files &&
             kubectl apply -f redis-deployment.yaml &&
             kubectl apply -f redis-service.yaml &&
