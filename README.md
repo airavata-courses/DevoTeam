@@ -42,6 +42,17 @@ Started with an empty configuration
 ```
 istioctl manifest apply --set profile=empty
 ```
+### Install istio with add-ons
+navigate to the istio directory
+```
+helm template install/kubernetes/helm/istio --name istio \ --set global.mtls.enabled=false \ --set tracing.enabled=true \ --set kiali.enabled=true \--set grafana.enabled=true \--namespace istio-system > istio.yaml
+```
+apply the created istio.yaml to the cluster
+```
+kubectl apply -f istio.yaml
+```
+
+
 ### Injecting side-car proxies
 With this command any pod deployed in the Kubernetes default namespace of the cluster will have a side-car proxy configured with it in the same pod
 ```
