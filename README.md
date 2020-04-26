@@ -28,3 +28,13 @@ Verify Tiller pod in the cluster:
 ```
 kubectl get pods --namespace kube-system
 ```
+3) Install Istio on Kubernetes
+ssh into the Kubernetes master:
+```
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-1.5.2
+```
+Add istioctl to path
+```
+export PATH=$PWD/bin:$PATH
+```
