@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/devoteam-external-services
+kind: VirtualService
+metadata:
+  name: devoteam-external-services
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway                      # 1
+  http:
+  - match:
+    - uri:
+        exact: /
+    - uri:
+        exact: /callback
+    - uri:
+        prefix: /static
+    - uri:
+        regex: '^.*\.(ico|png|jpg)$'
+    route:
+    - destination:
+        host: sa-frontend             # 2
+        port:
+          number: 80
