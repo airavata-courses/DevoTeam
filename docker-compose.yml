@@ -1,0 +1,90 @@
+version: '2.1'
+services:
+  data_ingestion:
+    build: ./Data_Ingestion
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
+
+  rabbit:
+    build: ./rabbit_server
+    ports: 
+        - "15672:15672"
+        - "5672:5672"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  api:
+    build: ./API_gateway
+    depends_on:
+      redis:
+        condition: service_healthy
+    links: 
+        - redis
+        - rabbit
+    ports:
+     - "8081:8081"
+
+  redis:
+    build: ./redis
+    ports: 
+        - "6379:6379"
+    healthcheck:
+        test: ["CMD", "redis-cli"]
+        interval: 15s
+        timeout: 10s
+        retries: 5
+
+  model-exec:
+    build: ./Model_Execution
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
+  post-processing:
+    build: ./Post_processing
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
+
+  session:
+    build: ./Session_Management
+    ports:
+      - "9000:9000"
+  
+  mongo:
+    image: mongo
+    ports:
+      - "20000:27017"
+
+  user_management-service:
+    build:
+      context: ./User_Management
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwerty1234
+      - MYSQL_DATABASE=devoteam_user
+    ports:
+      - "3306:3306"
+  ui:
+    build:
+     context: ./UI
+     dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+

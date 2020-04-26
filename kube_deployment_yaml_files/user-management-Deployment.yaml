@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: user-management-service
+  name: user-management-service
+spec:
+  replicas: 1
+  selector:
+   matchLabels: 
+    app: user-management-service
+  template:
+    metadata:
+      labels:
+        app: user-management-service
+    spec:
+      containers:
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:user_man
+        name: user-management-service
+        ports:
+        - containerPort: 8082
+      restartPolicy: Always
+status: {}

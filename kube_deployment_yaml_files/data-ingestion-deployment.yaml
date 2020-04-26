@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/1/./kompose-linux-amd64 convert
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: data-ingestion
+  name: data-ingestion
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: data-ingestion
+    spec:
+      containers:
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:Data_Ingestion
+        name: data-ingestion
+        resources: {}
+      restartPolicy: Always
+status: {}

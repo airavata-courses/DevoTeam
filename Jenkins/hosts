@@ -1,0 +1,5 @@
+[jenmaster]
+jenmaster ansible_host=149.165.171.18 ansible_user=ubuntu
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

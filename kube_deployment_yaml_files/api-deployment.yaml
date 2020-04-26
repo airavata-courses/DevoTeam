@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+   matchLabels: 
+    app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - imagePullPolicy: Always
+        image: devoteam1/devoteam:API
+        name: api
+        ports:
+        - containerPort: 8081
+      restartPolicy: Always
+status: {}
