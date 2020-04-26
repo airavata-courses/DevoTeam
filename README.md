@@ -42,3 +42,8 @@ Started with an empty configuration
 ```
 istioctl manifest apply --set profile=empty
 ```
+### Injecting side-car proxies
+With this command any pod deployed in the Kubernetes default namespace of the cluster will have a side-car proxy configured with it in the same pod
+```
+kubectl label namespace default istio-injection=enabled
+```
