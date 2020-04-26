@@ -58,3 +58,34 @@ With this command any pod deployed in the Kubernetes default namespace of the cl
 ```
 kubectl label namespace default istio-injection=enabled
 ```
+
+### Install Kiali
+1) Create a secret
+```
+KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
+KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
+NAMESPACE=istio-system
+kubectl create namespace $NAMESPACE
+
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: kiali
+  namespace: $NAMESPACE
+  labels:
+    app: kiali
+type: Opaque
+data:
+  username: $KIALI_USERNAME
+  passphrase: $KIALI_PASSPHRASE
+EOF
+```
+2) Install
+```
+istioctl manifest apply --set values.kiali.enabled=true
+```
+3) Verify installation
+```
+kubectl -n istio-system get service kiali
+```
