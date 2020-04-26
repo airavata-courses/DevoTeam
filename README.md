@@ -38,3 +38,7 @@ Add istioctl to path
 ```
 export PATH=$PWD/bin:$PATH
 ```
+Started with an empty configuration
+```
+istioctl manifest apply --set profile=empty
+```
