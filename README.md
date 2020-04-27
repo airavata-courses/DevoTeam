@@ -106,3 +106,26 @@ kubectl -n istio-system get service kiali
 ```
 
 ### Install Grafana
+Install
+```
+istioctl manifest apply --set values.grafana.enabled=true
+```
+3) Verify installation
+```
+kubectl -n istio-system get service grafana
+```
+
+4) Handling Jetstrem public ip issue:
+First convert the service to LoadBalancer:
+```
+kubectl patch service grafana --patch '{"spec":{"type":"LoadBalancer"}}' -n istio-system
+```
+Get port
+```
+kubectl -n istio-system get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].ip}
+kubectl -n istio-system get service grafana -o jsonpath='{.spec.ports[?(@.name=="http-grafana")].port}'
+```
+Now you can see the port that has been mapped
+```
+kubectl -n istio-system get service grafana
+```
