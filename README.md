@@ -6,50 +6,57 @@ citing: https://www.digitalocean.com/community/tutorials/how-to-install-software
 ssh into the Kubernetes master node on Jetstream: 
 1) Install Helm on the Kubernetes master node:
 ```
-cd /tmp
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > install-helm.sh
-chmod u+x install-helm.sh
-./install-helm.sh
+$ cd /tmp
+$ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > install-helm.sh
+$ chmod u+x install-helm.sh
+$ ./install-helm.sh
 ```
 2) Install Tiller:
 Create a service account:
 ```
-kubectl -n kube-system create serviceaccount tiller
+$ kubectl -n kube-system create serviceaccount tiller
 ```
 Bind to cluster admin role:
 ```
-kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+$ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 ```
 Install Tiller in the cluster
 ```
-helm init --service-account tiller
+$ helm init --service-account tiller
 ```
 Verify Tiller pod in the cluster:
 ```
-kubectl get pods --namespace kube-system
+$ kubectl get pods --namespace kube-system
 ```
 ### Install Istio on Kubernetes
 ssh into the Kubernetes master:
 ```
-curl -L https://istio.io/downloadIstio | sh -
-cd istio-1.5.2
+$ curl -L https://istio.io/downloadIstio | sh -
+$ cd istio-1.5.2
 ```
 Add istioctl to path
 ```
-export PATH=$PWD/bin:$PATH
+$ export PATH=$PWD/bin:$PATH
 ```
 Started with an empty configuration
 ```
-istioctl manifest apply --set profile=empty
+$ istioctl manifest apply --set profile=empty
 ```
 ### Install istio with add-ons
+Before doing this we must create credentials(source: https://github.com/knative/test-infra/pull/211)
+```
+$ NAMESPACE=istio-system
+$ kubectl create namespace $NAMESPACE
+$ helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl apply -f -
+```
+
 navigate to the istio directory
 ```
-helm template install/kubernetes/helm/istio --name istio \ --set global.mtls.enabled=false \ --set tracing.enabled=true \ --set kiali.enabled=true \--set grafana.enabled=true \--namespace istio-system > istio.yaml
+$ helm template install/kubernetes/helm/istio --name istio \ --set global.mtls.enabled=false \ --set tracing.enabled=true \ --set kiali.enabled=true \--set grafana.enabled=true \--namespace istio-system > istio.yaml
 ```
 apply the created istio.yaml to the cluster
 ```
-kubectl apply -f istio.yaml
+$ kubectl apply -f istio.yaml
 ```
 
 
@@ -64,10 +71,9 @@ kubectl label namespace default istio-injection=enabled
 ```
 $ KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
 $ KIALI_PASSPHRASE=$(read -sp 'Kiali Passphrase: ' pval && echo -n $pval | base64)
-$ NAMESPACE=istio-system
-$ kubectl create namespace $NAMESPACE
 
-cat <<EOF | kubectl apply -f -
+
+$ cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
@@ -83,26 +89,26 @@ EOF
 ```
 2) Install
 ```
-istioctl manifest apply --set values.kiali.enabled=true
+$ istioctl manifest apply --set values.kiali.enabled=true
 ```
 3) Verify installation
 ```
-kubectl -n istio-system get service kiali
+$ kubectl -n istio-system get service kiali
 ```
 
 4) Handling Jetstrem public ip issue:
 First convert the service to LoadBalancer:
 ```
-kubectl patch service kiali --patch '{"spec":{"type":"LoadBalancer"}}' -n istio-system
+$ kubectl patch service kiali --patch '{"spec":{"type":"LoadBalancer"}}' -n istio-system
 ```
 Get port
 ```
-kubectl -n istio-system get service kiali -o jsonpath='{.status.loadBalancer.ingress[0].ip}
-kubectl -n istio-system get service kiali -o jsonpath='{.spec.ports[?(@.name=="http-kiali")].port}'
+$ kubectl -n istio-system get service kiali -o jsonpath='{.status.loadBalancer.ingress[0].ip}
+$ kubectl -n istio-system get service kiali -o jsonpath='{.spec.ports[?(@.name=="http-kiali")].port}'
 ```
 Now you can see the port that has been mapped
 ```
-kubectl -n istio-system get service kiali
+$ kubectl -n istio-system get service kiali
 ```
 
 ### Install Grafana
