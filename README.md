@@ -62,10 +62,10 @@ kubectl label namespace default istio-injection=enabled
 ### Install Kiali
 1) Create a secret
 ```
-KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
-KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
-NAMESPACE=istio-system
-kubectl create namespace $NAMESPACE
+$ KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
+$ KIALI_PASSPHRASE=$(read -sp 'Kiali Passphrase: ' pval && echo -n $pval | base64)
+$ NAMESPACE=istio-system
+$ kubectl create namespace $NAMESPACE
 
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
