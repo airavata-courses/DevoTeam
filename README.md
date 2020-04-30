@@ -38,18 +38,14 @@ Add istioctl to path
 ```
 $ export PATH=$PWD/bin:$PATH
 ```
-Started with an empty configuration
+Create namespace for istio
 ```
-$ istioctl manifest apply --set profile=empty
+$ kubectl create namespace istio-system
 ```
-### Install istio with add-ons
-Before doing this we must create credentials(source: https://github.com/knative/test-infra/pull/211)
+Create CRD's(source: https://github.com/knative/test-infra/pull/211)
 ```
-$ NAMESPACE=istio-system
-$ kubectl create namespace $NAMESPACE
 $ helm template install/kubernetes/helm/istio-init --name istio-init --namespace istio-system | kubectl apply -f -
 ```
-
 navigate to the istio directory
 ```
 $ helm template install/kubernetes/helm/istio --name istio \ --set global.mtls.enabled=false \ --set tracing.enabled=true \ --set kiali.enabled=true \--set grafana.enabled=true \--namespace istio-system > istio.yaml
@@ -59,14 +55,13 @@ apply the created istio.yaml to the cluster
 $ kubectl apply -f istio.yaml
 ```
 
-
 ### Injecting side-car proxies
 With this command any pod deployed in the Kubernetes default namespace of the cluster will have a side-car proxy configured with it in the same pod
 ```
 kubectl label namespace default istio-injection=enabled
 ```
 
-### Install Kiali
+### Configuring Kiali
 1) Create a secret
 ```
 $ KIALI_USERNAME=$(read -p 'Kiali Username: ' uval && echo -n $uval | base64)
@@ -87,10 +82,6 @@ data:
   passphrase: $KIALI_PASSPHRASE
 EOF
 ```
-2) Install
-```
-$ istioctl manifest apply --set values.kiali.enabled=true
-```
 3) Verify installation
 ```
 $ kubectl -n istio-system get service kiali
@@ -110,13 +101,10 @@ Now you can see the port that has been mapped
 ```
 $ kubectl -n istio-system get service kiali
 ```
+Go to k8's_master_ip:exposed_port/kiali to view the kiali dashboard
 
-### Install Grafana
-Install
-```
-istioctl manifest apply --set values.grafana.enabled=true
-```
-3) Verify installation
+### Configuring Grafana
+Verify Grafana service
 ```
 kubectl -n istio-system get service grafana
 ```
@@ -135,3 +123,4 @@ Now you can see the port that has been mapped
 ```
 kubectl -n istio-system get service grafana
 ```
+Go to k8's_master_ip:exposed_port to view the grafana dashboard
