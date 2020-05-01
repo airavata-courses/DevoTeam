@@ -112,15 +112,15 @@ kubectl -n istio-system get service grafana
 4) Handling Jetstrem public ip issue:
 First convert the service to LoadBalancer:
 ```
-kubectl patch service grafana --patch '{"spec":{"type":"LoadBalancer"}}' -n istio-system
+$ kubectl patch service grafana --patch '{"spec":{"type":"LoadBalancer"}}' -n istio-system
 ```
 Get port
 ```
-kubectl -n istio-system get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].ip}
-kubectl -n istio-system get service grafana -o jsonpath='{.spec.ports[?(@.name=="http-grafana")].port}'
+$ kubectl -n istio-system get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].ip}
+$ kubectl -n istio-system get service grafana -o jsonpath='{.spec.ports[?(@.name=="http-grafana")].port}'
 ```
 Now you can see the port that has been mapped
 ```
-kubectl -n istio-system get service grafana
+$ kubectl -n istio-system get service grafana
 ```
 Go to k8's_master_ip:exposed_port to view the grafana dashboard
