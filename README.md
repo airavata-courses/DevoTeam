@@ -1,5 +1,4 @@
-## Service mesh integration with system deployed in assignment 2
-
+## Part-1 Installing and configuring Istio Service mesh with system deployed in assignment 2:
 ### Installing helm and Tiller
 citing: https://www.digitalocean.com/community/tutorials/how-to-install-software-on-kubernetes-clusters-with-the-helm-2-package-manager
 
@@ -124,3 +123,8 @@ Now you can see the port that has been mapped
 $ kubectl -n istio-system get service grafana
 ```
 Go to k8's_master_ip:exposed_port to view the grafana dashboard
+
+## Part-2 Exploring Deployments with Istio:
+Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment try the following steps:
+
+
