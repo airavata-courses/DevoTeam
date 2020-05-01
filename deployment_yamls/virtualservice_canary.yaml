@@ -1,0 +1,34 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nodejs
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - http-gateway
+  http:
+  - route:
+    - destination:
+        host: api
+        subset: v1
+      weight: 1
+    - destination:
+        host: api
+        subset: v2
+      weight: 99
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: nodejs
+spec:
+  host: api
+  subsets:
+  - name: v1
+    labels:
+      version: v1
+  - name: v2
+    labels:
+      version: v2
