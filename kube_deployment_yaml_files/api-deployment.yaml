@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - imagePullPolicy: Always
-        image: devoteam1/devoteam:API
+        image: devoteam1/devoteam:API_version_istio
         name: api
         ports:
         - containerPort: 8081
