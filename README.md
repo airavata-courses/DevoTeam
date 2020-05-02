@@ -139,3 +139,5 @@ $ kubectl aaply -f virtualservice_canary.yaml
 - You can also manually validate this by making hits to our system majority of the times api version 1 response is served. 
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/canary_weights.png)
 
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/api_versions.png)
+
