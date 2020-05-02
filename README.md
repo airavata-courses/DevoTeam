@@ -125,6 +125,13 @@ $ kubectl -n istio-system get service grafana
 Go to k8's_master_ip:exposed_port to view the grafana dashboard
 
 ## Part-2 Exploring Deployments with Istio:
-Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment try the following steps:
+- Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment with our system try the following steps:
+```
+- ssh into the kubernetes master:
+- Deploy the second version of the api that returns a default precipitation image plot.
+- Deploy the gateway and virtualservice.
+```
+- We tried this with various weights, for example api version 1 getting 75% of the requests and version 2 getting 25% of the requests.
+- You can visualise this and validate your deployment with kiali
 
 
