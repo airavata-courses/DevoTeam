@@ -136,7 +136,8 @@ $ kubectl aaply -f virtualservice_canary.yaml
 ```
 - We tried this with various weights, for example api version 1 getting 75% of the requests and version 2 getting 25% of the requests.
 - You can visualise this and validate your deployment with kiali
-- You can also manually validate this by making hits to our system majority of the times api version 1 response is served.   
+- You can also manually validate this by making hits to our system majority of the times api version 1 response is served.  
+  
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/canary_weights.png)
 
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/api_versions.png)
