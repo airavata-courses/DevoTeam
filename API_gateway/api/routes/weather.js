@@ -3,6 +3,13 @@ var client = redis.createClient({
  host: 'redis',
  port: 6379
 });
+
+client.on('error', (error) => {
+console.log(error.message);
+})
+client.on('connect',()=>{
+console.log('Successfully connected to redis');
+})
 const axios = require('axios');
 
 
