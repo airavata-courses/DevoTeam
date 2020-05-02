@@ -93,7 +93,7 @@ $ kubectl patch service kiali --patch '{"spec":{"type":"LoadBalancer"}}' -n isti
 ```
 Get port
 ```
-$ kubectl -n istio-system get service kiali -o jsonpath='{.status.loadBalancer.ingress[0].ip}
+$ kubectl -n istio-system get service kiali -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 $ kubectl -n istio-system get service kiali -o jsonpath='{.spec.ports[?(@.name=="http-kiali")].port}'
 ```
 Now you can see the port that has been mapped
@@ -115,7 +115,7 @@ $ kubectl patch service grafana --patch '{"spec":{"type":"LoadBalancer"}}' -n is
 ```
 Get port
 ```
-$ kubectl -n istio-system get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].ip}
+$ kubectl -n istio-system get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 $ kubectl -n istio-system get service grafana -o jsonpath='{.spec.ports[?(@.name=="http-grafana")].port}'
 ```
 Now you can see the port that has been mapped
