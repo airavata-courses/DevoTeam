@@ -72,7 +72,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: kiali
-  namespace: $NAMESPACE
+  namespace: istio-system
   labels:
     app: kiali
 type: Opaque
