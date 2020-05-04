@@ -47,15 +47,21 @@ password: admin
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/1000_replica_1.png)
 Provide links to GitHub issues, Airavata Developer list discussions, and other efforts that helped you refine your approach.
 
-### Deployments with Istio:
-## Part-2 Exploring Deployments with Istio:
+### Exploring Deployments with Istio:
 - Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment with our system try the following steps:
 ```
+- git clone the Develop branch
 - ssh into the kubernetes master:
 - Deploy the second version of the api that returns a default precipitation image plot.
+```
 $ kubectl aaply -f api_canary.yaml
+```
 - Deploy the gateway and virtualservice.
+```
 $ kubectl aaply -f gateway_canary.yaml
+```
+- Add destination rule and a virtual service
+```
 $ kubectl aaply -f virtualservice_canary.yaml
 ```
 - We tried this with various weights, for example api version 1 getting 75% of the requests and version 2 getting 25% of the requests.
