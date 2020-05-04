@@ -45,7 +45,6 @@ password: admin
 
 - Grafana does help with real time monitoring of the traffic but it is not very user-friendly and to derive meaning out of it is a bit difficult. Here is a grafana screenshot when we were making multiple requests to our system.
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/1000_replica_1.png)
-Provide links to GitHub issues, Airavata Developer list discussions, and other efforts that helped you refine your approach.
 
 ### Exploring Deployments with Istio:
 - Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment with our system try the following steps:
