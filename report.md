@@ -77,10 +77,6 @@ Canary deployment:
 
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/api_versions.png) 
 
-Evaluation: How did you evaluate your problem? Provide documentation that allows graders to reproduce your evaluations.
-
-Conclusions and Outcomes: What did you conclude based on your evaluations? How do you objectively substantiate your conclusions?  Negative conclusions are acceptable if properly substantiated.
-
 ### Security aspects of Istio:
 - Istio does provide lot of security features as well with mutual TLS and traffic routing to specific tenants and allowing JWT token access only.
 - We looked at a scenario where we can block all access to our system through our api
