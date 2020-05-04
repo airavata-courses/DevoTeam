@@ -2,6 +2,8 @@
 ### Installing helm and Tiller
 citing: https://www.digitalocean.com/community/tutorials/how-to-install-software-on-kubernetes-clusters-with-the-helm-2-package-manager
 
+Kubernetes master ip: 149.165.169.244
+
 ssh into the Kubernetes master node on Jetstream: 
 1) Install Helm on the Kubernetes master node:
 ```
