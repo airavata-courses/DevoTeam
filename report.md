@@ -37,6 +37,7 @@ password: admin
 - Grafana: http://149.165.169.244:32132/    
 
 ###  Analysis of Kiali and Grafana to see if it helps with better observability:
+The screenshots were recorded during the jmeter testing of our system. To view those results please visit https://github.com/airavata-courses/DevoTeam/blob/Develop/Jmeter.md  
 - We definitely think it helps with easier log access and thus giving better observability. As you find below is a screenshot of our api gateway recieving hits and we observing it directly through kiali.
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/kiali_logs_api.png)
  
