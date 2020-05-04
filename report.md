@@ -48,7 +48,10 @@ The screenshots were recorded during the jmeter testing of our system. To view t
 ![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/1000_replica_1.png)
 
 ### Exploring Deployments with Istio:
-- Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment with our system try the following steps:
+- Using Istio we can define an Ingress http-gateway that can be used as a pivot to direct controlled traffic to specific components of a system using a virtual service. To try a canary deployment with our system try the following steps with our api gateway:
+Initial system:
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/base_system.png)
+
 - git clone the Develop branch
 - ssh into the kubernetes master: 149.165.169.244
 - Deploy the second version of the api that returns a default precipitation image plot:
@@ -63,6 +66,10 @@ $ kubectl aaply -f gateway_canary.yaml
 ```
 $ kubectl aaply -f virtualservice_canary.yaml
 ```
+Canary deployment: 
+![alt text](https://github.com/airavata-courses/DevoTeam/blob/Develop/canary.png)
+
+
 - We tried this with various weights, for example api version 1 getting 75% of the requests and version 2 getting 25% of the requests.
 - You can visualise this and validate your deployment with kiali.
 - You can also manually validate this by making hits to our system majority of the times api version 1 response is served.  
