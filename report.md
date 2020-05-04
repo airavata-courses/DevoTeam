@@ -6,7 +6,7 @@ To investigate if Istio can be used as a service mesh technology to our existing
 - Security was a major issue that would stop our system from being production ready. The current system is vulnerable to security threats such as Man in the middle attacks and Denial of service attacks. We would like to investigate if Istio's security layer can be of benefit here.
 
 ## Differences from Initial Problem Statement:
-- During the implementation and configuration of Istio on our system, as well as the interactions we had during the lectures we realised that Istio is not a sure shot solution to having a perfect Control Plane and Data Plane to a Distributed System as it is advertised in the documentation and various blog posts on the internet. We were more skeptical about its features and value it brought to the system as a whole without implementing it first.
+- During the implementation and configuration of Istio on our system, as well as the interactions we had during the lectures we realised that Istio is not a sure shot solution to having a perfect Control Plane and Data Plane to a Distributed System as it is advertised in the documentation and various blog posts on the internet. We were more skeptical about its features and value it brought to the system as a whole without implementing it first. We wanted to observe the actual benefits within the context f our system.
 
 ## Problem Statement Development:
 - As service mesh was a new concept to us we started with understanding what a service mesh is. 
@@ -27,6 +27,7 @@ https://www.youtube.com/watch?v=9CQ0PMiOGhg&t=923s
 
 ## Methodology, Implementation & Evaluation:
 ### We started with configuring Istio to our system on Jetstream and exposing Grafana and Kiali dashboards:
+system url: http://149.165.169.244:31515/  
 - Please find our installation documentation in the Develop branch ReadMe: https://github.com/airavata-courses/DevoTeam/blob/Develop/README.md
 - Kiali: http://149.165.169.244:32351/kiali/  
 Kiali login credentials:  
@@ -79,18 +80,21 @@ Canary deployment:
 
 ### Security aspects of Istio:
 - Istio does provide lot of security features as well with mutual TLS and traffic routing to specific tenants and allowing JWT token access only.
-- We looked at a scenario where we can block all access to our system through our api
-kubectl apply -f deny_all.yaml
-try hitting the api or making request through the UI they will fail.
-API details:
-endpoint ip: http://149.165.169.244:30000/weather
-JSON body:
-{"email":"abc@gmail.com", "year":"2019", "month":"04", "day":"02","radar":"KIND", "t_id":"wdadaawrw"} 
+- We looked at a scenario where we can block all access to our system through our api. To replicate it, you can ssh into our Kubernetes master 149.165.169.244, clone our repo branch -> Develop and do the following:  
+```
+$ kubectl apply -f deny_all.yaml
+```
+try hitting the api or making request through the UI they will fail.  
+API details:  
+endpoint ip: http://149.165.169.244:30000/weather  
+JSON body:  
+{"email":"abc@gmail.com", "year":"2019", "month":"04", "day":"02","radar":"KIND", "t_id":"wdadaawrw"}   
 
-- We also investigated allowing only JWT token access to the system. We did not achieve expected behaviour as we were still able to hit the api.
+- We also investigated allowing only JWT token access to the system. We did not achieve expected behaviour as we were still able to hit the api. We looked into side-car proxy logs to see if policies were in effect and checked kubernetes logs but could not significantly debug our issues.
 
 ### Conclusions and Outcomes:
 As said earlier, we were more skeptical about Istio as a service mesh and tha helped us learn more about it and derive meaning as to if it can be really used to the benefit of the overall system. We conclude that it is not a silver bullet for the complications or problems we faced with our system.
 Based on our evaluations we conclude the following:
 1) Istio is not a service mesh that can be directly applied to an existing Distributed system without making a few changes. We had to make changes to our codebase and containers to make it work. If you look at https://github.com/airavata-courses/DevoTeam/issues/67 it really explains how adding another layer makes things crash the way our rabbit server became unavailable. Another issue we faced was the API gateway not connecting to redis and failing intermittently. If you look at the comments of https://github.com/airavata-courses/DevoTeam/issues/65 we need to think about the service mesh implementation when coding our services. But I do agree that other than these issues it was very straight forward to inject envoy proxies as side-cars to each service. With increasing components and scaling demands coding a system thinking of it being potentially integrated with a service mesh is understandable.
 2) In terms of observability and traffic management we conclude that istio did help us visualise and understand our system better. We tested it with Jmeter and observed better results. Please check them at https://github.com/airavata-courses/DevoTeam/blob/Develop/Jmeter.md and check https://github.com/airavata-courses/DevoTeam/issues/66 for the analysis.
+3) In terms of security we are still looking into JWT token access in detail. What we conclude based on our learning is that although Istio can give a lot of security benefits we're not sure how any real world application Development team would feel about it. Although they might use it they would not rely on it completely and add security features internally as well. https://www.sdxcentral.com/articles/news/istio-security-bug-found-quickly-squashed/2020/02/ was an interesting read related to this issue.
