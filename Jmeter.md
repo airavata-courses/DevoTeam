@@ -1,4 +1,4 @@
-# Apache Jmeter Results
+# Apache JMeter Results
 
 ### Replica 1
 
