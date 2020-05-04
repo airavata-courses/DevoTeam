@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=9CQ0PMiOGhg&t=923s
 - We tried running MFT for local to local transport using fork https://github.com/pokearu and making a few changes to it.
 - We referred this document to understand MFT design in general https://docs.google.com/document/d/1zrO4Z1dn7ENhm1RBdVCw-dDpWiebaZEWy66ceTWoOlo/edit#heading=h.wn0b4rfo20cj
 
-## Methodology & Implementation:
+## Methodology, Implementation & Evaluation:
 ### We started with configuring Istio to our system on Jetstream and exposing Grafana and Kiali dashboards:
 - Please find our installation documentation in the Develop branch ReadMe: https://github.com/airavata-courses/DevoTeam/blob/Develop/README.md
 - Kiali: http://149.165.169.244:32351/kiali/  
@@ -77,3 +77,17 @@ Conclusions and Outcomes: What did you conclude based on your evaluations? How d
 ### Security aspects of Istio:
 - Istio does provide lot of security features as well with mutual TLS and traffic routing to specific tenants and allowing JWT token access only.
 - We looked at a scenario where we can block all access to our system through our api
+kubectl apply -f deny_all.yaml
+try hitting the api or making request through the UI they will fail.
+API details:
+endpoint ip: http://149.165.169.244:30000/weather
+JSON body:
+{"email":"abc@gmail.com", "year":"2019", "month":"04", "day":"02","radar":"KIND", "t_id":"wdadaawrw"} 
+
+- We also investigated allowing only JWT token access to the system. We did not achieve expected behaviour as we were still able to hit the api.
+
+### Conclusions and Outcomes:
+As said earlier, we were more skeptical about Istio as a service mesh and tha helped us learn more about it and derive meaning as to if it can be really used to the benefit of the overall system. We conclude that it is not a silver bullet for the complications or problems we faced with our system.
+Based on our evaluations we conclude the following:
+1) Istio is not a service mesh that can be directly applied to an existing Distributed system without making a few changes. We had to make changes to our codebase and containers to make it work. If you look at https://github.com/airavata-courses/DevoTeam/issues/67 it really explains how adding another layer makes things crash the way our rabbit server became unavailable. Another issue we faced was the API gateway not connecting to redis and failing intermittently. If you look at the comments of https://github.com/airavata-courses/DevoTeam/issues/65 we need to think about the service mesh implementation when coding our services. But I do agree that other than these issues it was very straight forward to inject envoy proxies as side-cars to each service. With increasing components and scaling demands coding a system thinking of it being potentially integrated with a service mesh is understandable.
+2) In terms of observability and traffic management we conclude that istio did help us visualise and understand our system better. We tested it with Jmeter and observed better results. Please check them at https://github.com/airavata-courses/DevoTeam/blob/Develop/Jmeter.md and check https://github.com/airavata-courses/DevoTeam/issues/66 for the analysis.
